@@ -25,9 +25,11 @@ Speak a sentence you wish to Yodafi. Witty jumbotron here.
         <input class="search" type="text" ng-model="query.name" placeholder="Search...">
       </div>
 	-->
+	<input class="search" type="text" ng-model="query" placeholder="Type Here...">
     </div>
     <div class="panel-body">
 	Panel body
+	{{query}}
 	<!--
       <div class="row show-list">
         <div class="col-xs-4 col-md-3" ng-repeat="show in shows | filter:query | orderBy:'rating':true">
@@ -44,4 +46,6 @@ Speak a sentence you wish to Yodafi. Witty jumbotron here.
     </div>
   </div>
 </div>
+
+
 

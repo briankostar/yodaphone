@@ -1,6 +1,5 @@
-angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute'])
+angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'mgcrea.ngStrap'])
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-	//set locationProvider to true to chance URL prefix
     $locationProvider.html5Mode(true);
 
     $routeProvider
@@ -8,11 +7,15 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute'])
         templateUrl: 'views/home.html',
         controller: 'MainCtrl'
       })
-      .when('/history, {
+      .when('/history', {
         templateUrl: 'views/history.html',
         controller: 'HistoryCtrl'
+      })
+      .when('/add', {
+        templateUrl: 'views/add.html',
+        controller: 'AddCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
-  } ]);
+  }]);

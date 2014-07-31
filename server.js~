@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var bcrypt = require('bcryptjs');
 var mongoose = require('mongoose');
+var unirest = require('unirest');
 /*
 var methodOverride = require('method-override');
 var session = require('express-session');
@@ -282,6 +283,7 @@ app.post('/api/shows', function (req, res, next) {
 });
 */
 app.get('/api/v1', function(req, res){res.send('hello this is API version 1')});
+
 //return all messages in /history
 app.get('/api/v1/history', function(req, res, next){
   var messages = Message.find();
@@ -290,6 +292,37 @@ app.get('/api/v1/history', function(req, res, next){
   res.json(messages);
 });
 
+//POST to our database with yoda API results
+
+app.post('/api/v1', function(req, res, next){
+  var header = 'X-Mashape-Key'
+  var apiKey = 'yEx4uK6uChmsh71x4HefoPsGNKEtp1cqfvrjsnBuxfNUudWTVh'
+
+  //get message_to_pass and parse it
+  //var message_to_pass = req.body.message.replace(/ /g, '_');
+
+  //make request w message_to_pass w API key and get response back..
+  unirest.get("https://yoda.p.mashape.com/yoda?sentence=You+will+learn+how+to+speak+like+master+someday.")
+  .header(header, apiKey)
+  .end(function (result) {
+  console.log(result.status, result.headers, result.body); 
+  });
+
+  //save record to database if all is good
+  //if(true){
+  //  Message.save(function(err){
+  //    if(err) res.send(err);
+  //    res.json({message: "Translated!"});
+  //  });
+  //}
+
+});
+
+
+
+
+
+//redirect other route to '/#' which angular will redirect to '/'
 app.get('*', function(req, res) {
   res.redirect('/#' + req.originalUrl);
 });
