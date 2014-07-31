@@ -11,7 +11,14 @@
       </li>
     </ul>
   </div> -->
-Speak a sentence you wish to Yodafi. Witty jumbotron here.
+<div class="container">
+<div class="wallpaper">wallpaper
+
+   <h1>Hello Young Jedi</h1>
+   <p>Learn to speak Master Yoda's way of speech by YodaFi-ing your boring-old sentences.</p>
+   <p><a class="btn btn-primary btn-lg" role="button" href="#">Translate >></a></p>
+</div>
+</div>
 </div>
 
 <div class="container">
@@ -30,6 +37,7 @@ Speak a sentence you wish to Yodafi. Witty jumbotron here.
     <div class="panel-body">
 	Panel body
 	{{query}}
+	<a href="/add">Lets get started!</a>
 	<!--
       <div class="row show-list">
         <div class="col-xs-4 col-md-3" ng-repeat="show in shows | filter:query | orderBy:'rating':true">

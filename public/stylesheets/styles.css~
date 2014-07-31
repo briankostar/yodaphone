@@ -1,0 +1,12 @@
+.navbar-brand {
+  background-color: #84B543;
+  transition: 0.25s all;
+  margin-left: -15px;
+}
+
+.wallpaper{
+    background-image: url('imgs/yoda4.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+}

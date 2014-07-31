@@ -306,15 +306,14 @@ app.post('/api/v1/history', function(req, res, next){
   var message_to_pass = message_to_pass.replace(/ /g, '+');
   console.log("MSG_TO_PASS: " + message_to_pass);
 
-  var message_to_save = "";
   //asynch request w message_to_pass w API key and get response back..
   unirest.get("https://yoda.p.mashape.com/yoda?sentence=" + message_to_pass)
   .header(header, apiKey)
   .end(function (result) {
     //console.log(result.status, result.headers, result.body); 
     console.log(result.body); 
-    message_to_save = result.body;
-    console.log("msg to save2:" + message_to_save + "!!!");
+    var message_to_save = result.body;
+    console.log("MSG_TO_SAVE:" + message_to_save);
 
       var msg = new Message();
       msg.body = message_to_save;
@@ -322,11 +321,9 @@ app.post('/api/v1/history', function(req, res, next){
       msg.save(function(err){
 	if(err)
 	  res.send(err);
-	res.json({message: 'msg created'});
+	res.json({message: 'Translated!'});
       });
   });
-  res.json({message: "Translated!"});
-  console.log("msg to save:" + message_to_save + "!!!");
   //save record to database if all is good
   //if(true){
   //    var msg = new Message();
@@ -350,9 +347,9 @@ app.post('/api/v1/history', function(req, res, next){
 
 
 //redirect other route to '/#' which angular will redirect to '/'
-app.get('*', function(req, res) {
-  res.redirect('/#' + req.originalUrl);
-});
+//app.get('*', function(req, res) {
+//  res.redirect('/#' + req.originalUrl);
+//});
 
 app.use(function(err, req, res, next) {
   console.error(err.stack);
