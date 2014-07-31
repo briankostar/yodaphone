@@ -48,13 +48,12 @@ var showSchema = new mongoose.Schema({
 });
 */
 var messageSchema = new mongoose.Schema({
-  _id: Number,
-  message: String,
-  created: Date
+  body: String
 });
 
 var Message = mongoose.model('Message', messageSchema);
-mongoose.connect('localhost');
+//mongoose.connect('localhost');
+mongoose.connect('mongodb://kostar:d*3la1ba9DEe*#@ds027509.mongolab.com:27519/mongokostar');
 
 /*
 var userSchema = new mongoose.Schema({
@@ -286,30 +285,58 @@ app.get('/api/v1', function(req, res){res.send('hello this is API version 1')});
 
 //return all messages in /history
 app.get('/api/v1/history', function(req, res, next){
-  var messages = Message.find();
-  //pass err to error middleware
-  if (err) return next(err);
-  res.json(messages);
+  //res.send('hello this is GET for api/v1/history');
+  Message.find(function(err, msgs) {
+    if (err)
+      res.send(err);
+
+    res.json(msgs);
+  });
 });
 
 //POST to our database with yoda API results
 
-app.post('/api/v1', function(req, res, next){
+app.post('/api/v1/history', function(req, res, next){
   var header = 'X-Mashape-Key'
   var apiKey = 'yEx4uK6uChmsh71x4HefoPsGNKEtp1cqfvrjsnBuxfNUudWTVh'
 
   //get message_to_pass and parse it
-  //var message_to_pass = req.body.message.replace(/ /g, '_');
+  var message_to_pass = req.body.msg_sent;
+  console.log("MSG_TO_PARSE: " + message_to_pass);
+  var message_to_pass = message_to_pass.replace(/ /g, '+');
+  console.log("MSG_TO_PASS: " + message_to_pass);
 
-  //make request w message_to_pass w API key and get response back..
-  unirest.get("https://yoda.p.mashape.com/yoda?sentence=You+will+learn+how+to+speak+like+master+someday.")
+  var message_to_save = "";
+  //asynch request w message_to_pass w API key and get response back..
+  unirest.get("https://yoda.p.mashape.com/yoda?sentence=" + message_to_pass)
   .header(header, apiKey)
   .end(function (result) {
-  console.log(result.status, result.headers, result.body); 
-  });
+    //console.log(result.status, result.headers, result.body); 
+    console.log(result.body); 
+    message_to_save = result.body;
+    console.log("msg to save2:" + message_to_save + "!!!");
 
+      var msg = new Message();
+      msg.body = message_to_save;
+      //console.log("msg:" + msg);
+      msg.save(function(err){
+	if(err)
+	  res.send(err);
+	res.json({message: 'msg created'});
+      });
+  });
+  res.json({message: "Translated!"});
+  console.log("msg to save:" + message_to_save + "!!!");
   //save record to database if all is good
   //if(true){
+  //    var msg = new Message();
+  //    msg.body = message_to_save;
+      //console.log("msg:" + msg);
+   //   msg.save(function(err){
+//	if(err)
+//	  res.send(err);
+//	res.json({message: 'msg created'});
+   //   });
   //  Message.save(function(err){
   //    if(err) res.send(err);
   //    res.json({message: "Translated!"});

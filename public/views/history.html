@@ -63,15 +63,10 @@
         <p>{{episode.overview}}</p>
       </div>
 
-<div class="container">ugg
-	    <ul class="genres">
-      		<li ng-repeat="genre in genres">
-        	<span>{{genre}}</span>
-      		</li>
-    	    </ul>
-<ul class="alphabet">
+<div class="container">
+    <ul>
       <li ng-repeat="msg in shows">
-        <span ng-click="filterByAlphabet(char)">{{msg}}</span>
+        <span>{{msg.body}}</span>
       </li>
     </ul>
 </div>

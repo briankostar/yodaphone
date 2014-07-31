@@ -64,9 +64,9 @@
       </div>
 
 <div class="container">ugg
-	    <ul class="genres">
-      		<li ng-repeat="genre in genres">
-        	<span>{{genre}}</span>
-      		</li>
-    	    </ul>
+    <ul>
+      <li ng-repeat="msg in shows">
+        <span>{{msg.body}}</span>
+      </li>
+    </ul>
 </div>

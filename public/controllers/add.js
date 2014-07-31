@@ -1,7 +1,7 @@
 angular.module('MyApp')
   .controller('AddCtrl', ['$scope', '$alert', 'Show', function($scope, $alert, Show) {
     $scope.addShow = function() {
-      Show.save({ showName: $scope.showName },
+      Show.save({ msg_sent: $scope.msg_sent },
         function() {
           $scope.showName = '';
           $scope.addForm.$setPristine();
