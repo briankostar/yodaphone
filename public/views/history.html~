@@ -64,7 +64,7 @@
         <p>{{episode.overview}}</p>
       </div>
 
-    <ul>
+    <ul class="yoda">
       <li class="yodafied" ng-repeat="msg in shows">
 	<span class="msgtime">{{msg.time | date: 'MMM d, h:mm a'}}:</span>
         <span class="msgbody">{{msg.body}}</span>

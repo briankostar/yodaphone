@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>YodaFi</title>
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="yodafavicon.png"/>
   <link href="stylesheets/bootstrap.css" rel="stylesheet">
   <link href="stylesheets/styles.css" rel="stylesheet">
 </head>
@@ -39,17 +39,8 @@
 <script src="controllers/main.js"></script>
 <script src="controllers/history.js"></script>
 <script src="controllers/add.js"></script>
-<script src="controllers/navbar.js"></script>
-
-<script src="filters/fromNow.js"></script>
-<script src="directives/repeatPassword.js"></script>
-<script src="controllers/login.js"></script>
-<script src="controllers/signup.js"></script>
-<script src="services/auth.js"></script>
 <script src="services/show.js"></script>
-<script src="services/subscription.js"></script>
 
-<!--<script src="app.min.js"></script>-->
-<!--<script src="templates.js"></script>-->
+<script src="controllers/navbar.js"></script>
 </body>
 </html>

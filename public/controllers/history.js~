@@ -1,9 +1,8 @@
 angular.module('MyApp')
-  .controller('HistoryCtrl', ['$scope', '$rootScope', '$routeParams', 'Show', 'Subscription',
-    function($scope, $rootScope, $routeParams, Show, Subscription) {
+  .controller('HistoryCtrl', ['$scope', '$rootScope', '$routeParams', 'Show'
+    function($scope, $rootScope, $routeParams, Show) {
 
 	$scope.shows = Show.query();
-	$scope.history = "bleeeh";
 	/*
       Show.get({ _id: $routeParams.id }, function(show) {
         $scope.show = show;
