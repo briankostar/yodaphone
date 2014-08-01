@@ -1,12 +1,110 @@
 .navbar-brand {
-  background-color: #84B543;
+  background-color: #63C76A;
   transition: 0.25s all;
   margin-left: -15px;
 }
+.navbar-default .navbar-brand{
+  color: white;
+}
+.navbar-header {
+  float: left;
+  padding-left: 15px;
+
+}
+
+.jumbotron{
+  margin-top: -20px;
+  border-bottom: 1px solid #dae2e4;
+}
 
 .wallpaper{
-    background-image: url('imgs/yoda4.jpg'); 
+    background-image: url('/imgs/yoda4.png'); 
     background-size: cover;
     background-repeat: no-repeat;
     height: 300px;
+
+    border-style: solid;
+    border-color: #C0CCC1;
+    border-width: 1px;
 }
+
+em {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.walltext{
+  padding-top: 8px;
+  padding-left: 15px;
+}
+
+h1{
+  font-weight: 600;
+}
+
+.media-object {
+  max-width: 200px;
+  margin-bottom: 10px;
+}
+
+.alert {
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.alert.top-right {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  margin: 20px;
+  z-index: 1050;
+  outline: none;
+}
+
+.btn {
+  border-radius: 2px;
+}
+
+.panel {
+  border-color: #cfd9D7;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 5px;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: 3px;
+  font-size: 12px;
+  transition: 0.1s all;
+  -webkit-font-smoothing: antialiased;
+}
+
+.navbar {
+  box-shadow: 0 3px 2px -3px rgba(0, 0, 0, 0.1);
+}
+
+.msgbody{
+  font-size: 18px;
+  font-weight: 600;
+  color: #386B3B;
+}
+
+.msgtime{
+  font-size: 15px;
+}
+.yodafied{
+  margin: 5px;
+  background: url('/imgs/favicon.png') no-repeat left top;
+  height: 34px;
+  padding-left: 44px;
+}
+.yoda{
+  background: url('/imgs/favicon.png') no-repeat left top;
+  height: 34px;
+  padding-left: 44px;
+}
+
+

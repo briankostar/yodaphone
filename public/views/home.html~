@@ -1,59 +1,16 @@
 <div class="jumbotron">
-  <!--<div class="container">
-    <ul class="alphabet">
-      <li ng-repeat="char in alphabet">
-        <span ng-click="filterByAlphabet(char)">{{char}}</span>
-      </li>
-    </ul>
-    <ul class="genres">
-      <li ng-repeat="genre in genres">
-        <span ng-click="filterByGenre(genre)">{{genre}}</span>
-      </li>
-    </ul>
-  </div> -->
-<div class="container">
-<div class="wallpaper">wallpaper
-
-   <h1>Hello Young Jedi</h1>
-   <p>Learn to speak Master Yoda's way of speech by YodaFi-ing your boring-old sentences.</p>
-   <p><a class="btn btn-primary btn-lg" role="button" href="#">Translate >></a></p>
-</div>
-</div>
-</div>
-
-<div class="container">
-  <div class="panel panel-default">
-	
-    <div class="panel-heading">
-	Panel-heading: 
-	<!--
-      {{headingTitle}}
-      <div class="pull-right">
-        <input class="search" type="text" ng-model="query.name" placeholder="Search...">
-      </div>
-	-->
-	<input class="search" type="text" ng-model="query" placeholder="Type Here...">
-    </div>
-    <div class="panel-body">
-	Panel body
-	{{query}}
-	<a href="/add">Lets get started!</a>
-	<!--
-      <div class="row show-list">
-        <div class="col-xs-4 col-md-3" ng-repeat="show in shows | filter:query | orderBy:'rating':true">
-          <a href="/shows/{{show._id}}">
-            <img class="img-rounded" ng-src="{{show.poster}}" width="100%"/>
-          </a>
-          <div class="text-center">
-            <a href="/shows/{{show._id}}">{{show.name}}</a>
-            <p class="text-muted">Episodes: {{show.episodes.length}}</p>
-          </div>
-        </div>
-      </div>
-	-->
+  <div class="container">
+    <div class="wallpaper">
+	<div class="walltext">
+     <h1>Hello Young Jedi</h1>
+     <p>Learn to speak Master Yoda's way of speech </p>
+     <p style="margin-top:-10px"">by YodaFi-ing your boring-old sentences.</p>
+     <p><a style="margin-top:15px class="btn btn-success btn-lg" role="button" href="/add">Translate >></a></p>
+    	<div>
     </div>
   </div>
 </div>
+
 
 
 

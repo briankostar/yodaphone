@@ -3,18 +3,29 @@
     <div class="panel-heading">YodaFi your sentence</div>
     <div class="panel-body">
       <form class="form" method="post" ng-submit="addShow()" name="addForm">
-<!--
-        <div class="form-group" ng-class="{ 'has-success' : addForm.showName.$valid && addForm.showName.$dirty, 'has-error' : addForm.showName.$invalid && addForm.showName.$dirty }">
--->
           <input class="form-control" type="text" name="msg_sent" ng-model="msg_sent" placeholder="Write sentence here" required autofocus>
-<!--
-          <div class="help-block text-danger" ng-if="addForm.showName.$dirty" ng-messages="addForm.showName.$error">
-            <div ng-message="required">TV show name is required.</div>
-          </div>
-        </div>
--->
-        <button class="btn btn-primary" type="submit" ng-disabled="addForm.$invalid">YodaFi!</button>
+	  <p style="margin-top:20px;">Tips:</p> 
+	<ul>
+	<li>Please don't just try "Hello." Nothing will change. Yoda won't answer back, he'll just repeat. It's not the same thing as a conversation.</li>
+<li>Yoda speaks short sentences for a reason. If the result is total garbage, that could be why!</li>
+<li>Make sure you use proper english grammar and punctuation, our little green friend can't read your mind. "Don't", instead of "Dont", and so on.</li>
+<li>You should use extra punctuation if a sentence contains more than one clause, often split with 'and', 'or', etc. For example: "Put your hands up and step away from the turnip." should be "Put your hands up, and step away from the turnip." or "Put your hands up. Step away from the turnip."</li>
+<li>The use of parenthesis is not yet recommended.</li>
+
+<li>Credit & thanks to: <a href="http://www.yodaspeak.co.uk">www.yodaspeak.co.uk</a></li>
+	</ul>
+
+
+	  <p style="margin-top:20px;">Message to Send:</p> 
+	  <p>{{msg_sent}}</p>
+	  <br/>
+          <button class="btn btn-primary " type="submit" ng-disabled="addForm.$invalid">Send >></button>
+	  <a class="btn btn-primary" href="/history" role="button">Check result</a>
       </form>
+<!--
+      <p>Yodafied answer: {{returned_msg}}</p> 
+    <div ng-init="returned_message="_"">{{returned_message}}</div>
+-->
     </div>
   </div>
 </div>

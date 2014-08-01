@@ -48,6 +48,7 @@ var showSchema = new mongoose.Schema({
 });
 */
 var messageSchema = new mongoose.Schema({
+  time: Date,
   body: String
 });
 
@@ -295,7 +296,7 @@ app.get('/api/v1/history', function(req, res, next){
 });
 
 //POST to our database with yoda API results
-
+//global_return_msg = "";
 app.post('/api/v1/history', function(req, res, next){
   var header = 'X-Mashape-Key'
   var apiKey = 'yEx4uK6uChmsh71x4HefoPsGNKEtp1cqfvrjsnBuxfNUudWTVh'
@@ -311,18 +312,21 @@ app.post('/api/v1/history', function(req, res, next){
   .header(header, apiKey)
   .end(function (result) {
     //console.log(result.status, result.headers, result.body); 
-    console.log(result.body); 
+    //console.log(result.body); 
     var message_to_save = result.body;
+    //global_return_msg = message_to_save;
     console.log("MSG_TO_SAVE:" + message_to_save);
 
       var msg = new Message();
       msg.body = message_to_save;
+      msg.time = new Date();
       //console.log("msg:" + msg);
       msg.save(function(err){
 	if(err)
 	  res.send(err);
 	res.json({message: 'Translated!'});
       });
+  return res.send({body: message_to_save});
   });
   //save record to database if all is good
   //if(true){
@@ -339,12 +343,8 @@ app.post('/api/v1/history', function(req, res, next){
   //    res.json({message: "Translated!"});
   //  });
   //}
-
+  
 });
-
-
-
-
 
 //redirect other route to '/#' which angular will redirect to '/'
 app.get('*', function(req, res) {
